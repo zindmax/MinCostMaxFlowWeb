@@ -8,6 +8,7 @@ class DashboardController extends Controller
 {
     public function index(Request $request) {
 
+        dd($request);
         $n = $request->input("n");
         $s = $request->input("s") - 1;
         $t = $request->input("t") - 1;
@@ -16,7 +17,6 @@ class DashboardController extends Controller
         $e = [];
 
         foreach ($request->input("edges") as $edge) {
-//            preg_match_all("/\d+/", $edge, $values);
             $e1 = new \App\Classes\Edge();
             $e2 = new \App\Classes\Edge();
             $e1->from = $edge["from"] - 1;
