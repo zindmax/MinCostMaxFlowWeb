@@ -1,9 +1,15 @@
 $('#submit').on('click', async e => {
     e.preventDefault();
 
+    const data = [];
     const edges = [];
+    const n = document.getElementById('n').value;
+    const s = document.getElementById('s').value;
+    const t = document.getElementById('t').value;
+    data.push(n);
+    data.push(s);
+    data.push(t);
     const edgeNodes = Array.from(document.getElementsByName('edges'));
-
     for (let i = 0; i < edgeNodes.length; i += 4) {
         edges.push({
             from: edgeNodes[i].value,
@@ -12,8 +18,9 @@ $('#submit').on('click', async e => {
             cost: edgeNodes[i + 3].value,
         });
     }
-
-    fetch('/graph', {
+    data.push(edges);
+    // console.log(edges);
+    await fetch('/graph', {
         method: 'post',
         headers: {
             'content-type': 'application/json',
@@ -21,4 +28,5 @@ $('#submit').on('click', async e => {
         },
         body: JSON.stringify({edges}),
     });
+
 });

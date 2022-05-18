@@ -7,16 +7,19 @@ use Illuminate\Http\Request;
 class DashboardController extends Controller
 {
     public function index(Request $request) {
-
-        dd($request);
-        $n = $request->input("n");
-        $s = $request->input("s") - 1;
-        $t = $request->input("t") - 1;
+//        dd($request->all());
+//
+//        return $request->all();
+        dd($request->all());
+        $graphData = $request->all();
+        $n = $graphData['n'];
+        $s = $graphData['s'] - 1;
+        $t = $graphData['t'] - 1;
 
         $g = [];
         $e = [];
 
-        foreach ($request->input("edges") as $edge) {
+        foreach ($graphData['edges'] as $edge) {
             $e1 = new \App\Classes\Edge();
             $e2 = new \App\Classes\Edge();
             $e1->from = $edge["from"] - 1;

@@ -10,15 +10,15 @@
                 <div class="mb-2 d-flex flex-row">
                     <div class="d-flex flex-column me-2">
                         <label for="n">Количество вершин</label>
-                        <input type="number" name="n" value="" id="n" placeholder="Введите количество вершин">
+                        <input type="number" name="n" value="8" id="n" placeholder="Введите количество вершин">
                     </div>
                     <div class="d-flex flex-column me-2">
                         <label for="s">Исток</label>
-                        <input type="number" name="s" value="" id="s" placeholder="Исток">
+                        <input type="number" name="s" value="1" id="s" placeholder="Исток">
                     </div>
                     <div class="d-flex flex-column me-2">
                         <label for="t">Сток</label>
-                        <input type="number" name="t" value="" id="t" placeholder="Сток">
+                        <input type="number" name="t" value="8" id="t" placeholder="Сток">
                     </div>
                 </div>
                 <p>Enter edges</p>
@@ -26,21 +26,177 @@
                     <div class="d-flex flex-row mb-2">
                         <div class="d-flex flex-column me-2">
                             <label for="edge_from">From</label>
-                            <input type="number" name="edges" placeholder="from" id="edge_from">
+                            <input type="number" name="edges" placeholder="from" id="edge_from" value="1">
                         </div>
                         <div class="d-flex flex-column me-2">
                             <label for="edge_to">To</label>
-                            <input type="number" name="edges" placeholder="to" id="edge_to">
+                            <input type="number" name="edges" placeholder="to" id="edge_to" value="2">
                         </div>
                         <div class="d-flex flex-column me-2">
                             <label for="edge_capacity">Capacity</label>
-                            <input type="number" name="edges" placeholder="capacity" id="edge_capacity">
+                            <input type="number" name="edges" placeholder="capacity" id="edge_capacity" value="22">
                         </div>
                         <div class="d-flex flex-column me-2">
                             <label for="edge_cost">Cost</label>
-                            <input type="number" name="edges" placeholder="cost" id="edge_cost">
+                            <input type="number" name="edges" placeholder="cost" id="edge_cost" value="4">
                         </div>
 {{--                        <input type="hidden" value="0" id="total_edges">--}}
+                    </div>
+                    <div class="d-flex flex-row mb-2">
+                        <div class="d-flex flex-column me-2">
+                            <input type="number" name="edges" placeholder="from" id="edge_from" value="1">
+                        </div>
+                        <div class="d-flex flex-column me-2">
+                            <input type="number" name="edges" placeholder="to" id="edge_to" value="3">
+                        </div>
+                        <div class="d-flex flex-column me-2">
+                            <input type="number" name="edges" placeholder="capacity" id="edge_capacity" value="17">
+                        </div>
+                        <div class="d-flex flex-column me-2">
+                            <input type="number" name="edges" placeholder="cost" id="edge_cost" value="8">
+                        </div>
+                    </div>
+                    <div class="d-flex flex-row mb-2">
+                        <div class="d-flex flex-column me-2">
+                            <input type="number" name="edges" placeholder="from" id="edge_from" value="2">
+                        </div>
+                        <div class="d-flex flex-column me-2">
+                            <input type="number" name="edges" placeholder="to" id="edge_to" value="3">
+                        </div>
+                        <div class="d-flex flex-column me-2">
+                            <input type="number" name="edges" placeholder="capacity" id="edge_capacity" value="5">
+                        </div>
+                        <div class="d-flex flex-column me-2">
+                            <input type="number" name="edges" placeholder="cost" id="edge_cost" value="2">
+                        </div>
+                    </div>
+                    <div class="d-flex flex-row mb-2">
+                        <div class="d-flex flex-column me-2">
+                            <input type="number" name="edges" placeholder="from" id="edge_from" value="2">
+                        </div>
+                        <div class="d-flex flex-column me-2">
+                            <input type="number" name="edges" placeholder="to" id="edge_to" value="4">
+                        </div>
+                        <div class="d-flex flex-column me-2">
+                            <input type="number" name="edges" placeholder="capacity" id="edge_capacity" value="15">
+                        </div>
+                        <div class="d-flex flex-column me-2">
+                            <input type="number" name="edges" placeholder="cost" id="edge_cost" value="14">
+                        </div>
+                    </div>
+                    <div class="d-flex flex-row mb-2">
+                        <div class="d-flex flex-column me-2">
+                            <input type="number" name="edges" placeholder="from" id="edge_from" value="3">
+                        </div>
+                        <div class="d-flex flex-column me-2">
+                            <input type="number" name="edges" placeholder="to" id="edge_to" value="5">
+                        </div>
+                        <div class="d-flex flex-column me-2">
+                            <input type="number" name="edges" placeholder="capacity" id="edge_capacity" value="18">
+                        </div>
+                        <div class="d-flex flex-column me-2">
+                            <input type="number" name="edges" placeholder="cost" id="edge_cost" value="3">
+                        </div>
+                    </div>
+                    <div class="d-flex flex-row mb-2">
+                        <div class="d-flex flex-column me-2">
+                            <input type="number" name="edges" placeholder="from" id="edge_from" value="5">
+                        </div>
+                        <div class="d-flex flex-column me-2">
+                            <input type="number" name="edges" placeholder="to" id="edge_to" value="4">
+                        </div>
+                        <div class="d-flex flex-column me-2">
+                            <input type="number" name="edges" placeholder="capacity" id="edge_capacity" value="3">
+                        </div>
+                        <div class="d-flex flex-column me-2">
+                            <input type="number" name="edges" placeholder="cost" id="edge_cost" value="5">
+                        </div>
+                    </div>
+                    <div class="d-flex flex-row mb-2">
+                        <div class="d-flex flex-column me-2">
+                            <input type="number" name="edges" placeholder="from" id="edge_from" value="4">
+                        </div>
+                        <div class="d-flex flex-column me-2">
+                            <input type="number" name="edges" placeholder="to" id="edge_to" value="6">
+                        </div>
+                        <div class="d-flex flex-column me-2">
+                            <input type="number" name="edges" placeholder="capacity" id="edge_capacity" value="16">
+                        </div>
+                        <div class="d-flex flex-column me-2">
+                            <input type="number" name="edges" placeholder="cost" id="edge_cost" value="2">
+                        </div>
+                    </div>
+                    <div class="d-flex flex-row mb-2">
+                        <div class="d-flex flex-column me-2">
+
+                            <input type="number" name="edges" placeholder="from" id="edge_from" value="5">
+                        </div>
+                        <div class="d-flex flex-column me-2">
+
+                            <input type="number" name="edges" placeholder="to" id="edge_to" value="7">
+                        </div>
+                        <div class="d-flex flex-column me-2">
+
+                            <input type="number" name="edges" placeholder="capacity" id="edge_capacity" value="20">
+                        </div>
+                        <div class="d-flex flex-column me-2">
+
+                            <input type="number" name="edges" placeholder="cost" id="edge_cost" value="14">
+                        </div>
+                    </div>
+                    <div class="d-flex flex-row mb-2">
+                            <div class="d-flex flex-column me-2">
+
+                                <input type="number" name="edges" placeholder="from" id="edge_from" value="6">
+                            </div>
+                            <div class="d-flex flex-column me-2">
+
+                                <input type="number" name="edges" placeholder="to" id="edge_to" value="7">
+                            </div>
+                            <div class="d-flex flex-column me-2">
+
+                                <input type="number" name="edges" placeholder="capacity" id="edge_capacity" value="4">
+                            </div>
+                            <div class="d-flex flex-column me-2">
+
+                                <input type="number" name="edges" placeholder="cost" id="edge_cost" value="1">
+                            </div>
+                    </div>
+                    <div class="d-flex flex-row mb-2">
+                        <div class="d-flex flex-column me-2">
+
+                            <input type="number" name="edges" placeholder="from" id="edge_from" value="6">
+                        </div>
+                        <div class="d-flex flex-column me-2">
+
+                            <input type="number" name="edges" placeholder="to" id="edge_to" value="8">
+                        </div>
+                        <div class="d-flex flex-column me-2">
+
+                            <input type="number" name="edges" placeholder="capacity" id="edge_capacity" value="19">
+                        </div>
+                        <div class="d-flex flex-column me-2">
+
+                            <input type="number" name="edges" placeholder="cost" id="edge_cost" value="8">
+                        </div>
+                    </div>
+                    <div class="d-flex flex-row mb-2">
+                        <div class="d-flex flex-column me-2">
+
+                            <input type="number" name="edges" placeholder="from" id="edge_from" value="7">
+                        </div>
+                        <div class="d-flex flex-column me-2">
+
+                            <input type="number" name="edges" placeholder="to" id="edge_to" value="8">
+                        </div>
+                        <div class="d-flex flex-column me-2">
+
+                            <input type="number" name="edges" placeholder="capacity" id="edge_capacity" value="19">
+                        </div>
+                        <div class="d-flex flex-column me-2">
+
+                            <input type="number" name="edges" placeholder="cost" id="edge_cost" value="3">
+                        </div>
                     </div>
                 </div>
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-2">
@@ -52,10 +208,12 @@
                 <button type="button" class="remove btn btn-primary">Remove Edge</button>
             </div>
         </div>
+    </div>
+    <div class="d-flex justify-content-center">
         <div id="canvas"></div>
-            <div>
-                <button id="redraw" onclick="redraw();">redraw</button>
-            </div>
+        <div>
+            <button id="redraw" onclick="redraw();">redraw</button>
+        </div>
     </div>
     <script src="{{asset('js/edges.js')}}"></script>
     <script src="{{asset('js/graph_generator.js')}}"></script>

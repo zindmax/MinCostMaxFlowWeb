@@ -12,15 +12,16 @@ window.onload = function() {
             .push(label)
         return set
     }
-
+//, x: 50, y: 250
+    //x: 900, y: 250
     g.addNode("1", {render : render, label : "1"});
     g.addNode("2", {render : render, label : "2"});
     g.addNode("3", {render : render, label : "3"});
     g.addNode("4", {render : render, label : "4"});
-    // g.addNode("5", {render : render, label : "5"});
-    // g.addNode("6", {render : render, label : "6"});
-    // g.addNode("7", {render : render, label : "7"});
-    // g.addNode("8", {render : render, label : "8"});
+    g.addNode("5", {render : render, label : "5"});
+    g.addNode("6", {render : render, label : "6"});
+    g.addNode("7", {render : render, label : "7"});
+    g.addNode("8", {render : render, label : "8"});
 
     g.addEdge("1", "2", {
         directed : true,
@@ -39,50 +40,50 @@ window.onload = function() {
         label: 'Label',
         label1: 0,
     });
-    // g.addEdge("2", "4", {
-    //     directed : true,
-    //     label: 'Label',
-    //     label1: 0,
-    // });
-    // g.addEdge("3", "5", {
-    //     directed : true,
-    //     label: 'Label',
-    //     label1: 0,
-    // });
-    // g.addEdge("4", "6", {
-    //     directed : true,
-    //     label: 'Label',
-    //     label1: 0,
-    // });
-    // g.addEdge("5", "4", {
-    //     directed : true,
-    //     label: 'Label',
-    //     label1: 0,
-    // });
-    // g.addEdge("5", "7", {
-    //     directed : true,
-    //     label: 'Label',
-    //     label1: 0,
-    // });
-    // g.addEdge("6", "7", {
-    //     directed : true,
-    //     label: 'Label',
-    //     label1: 0,
-    // });
-    // g.addEdge("6", "8", {
-    //     directed : true,
-    //     label: 'Label',
-    //     label1: 0,
-    // });
-    // g.addEdge("7", "8", {
-    //     directed : true,
-    //     label: 'Label',
-    //     label1: 0,
-    // });
+    g.addEdge("2", "4", {
+        directed : true,
+        label: 'Label',
+        label1: 0,
+    });
+    g.addEdge("3", "5", {
+        directed : true,
+        label: 'Label',
+        label1: 0,
+    });
+    g.addEdge("4", "6", {
+        directed : true,
+        label: 'Label',
+        label1: 0,
+    });
+    g.addEdge("5", "4", {
+        directed : true,
+        label: 'Label',
+        label1: 0,
+    });
+    g.addEdge("5", "7", {
+        directed : true,
+        label: 'Label',
+        label1: 0,
+    });
+    g.addEdge("6", "7", {
+        directed : true,
+        label: 'Label',
+        label1: 0,
+    });
+    g.addEdge("6", "8", {
+        directed : true,
+        label: 'Label',
+        label1: 0,
+    });
+    g.addEdge("7", "8", {
+        directed : true,
+        label: 'Label',
+        label1: 0,
+    });
 
     var layouter = new Dracula.Layout.Spring(g);
     layouter.layout();
-    var renderer = new Dracula.Renderer.Raphael('#canvas', g, 1100, 500);
+    var renderer = new Dracula.Renderer.Raphael('#canvas', g, 1100, 650);
     renderer.draw();
 
     redraw = function() {
