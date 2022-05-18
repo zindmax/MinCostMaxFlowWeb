@@ -20,13 +20,16 @@ $('#submit').on('click', async e => {
     }
     data.push(edges);
     // console.log(edges);
+    let token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
     await fetch('/graph', {
         method: 'post',
         headers: {
             'content-type': 'application/json',
             'accept': 'application/json',
+            'X-CSRF-TOKEN': token
         },
-        body: JSON.stringify({edges}),
+        body: JSON.stringify({data})
     });
 
 });

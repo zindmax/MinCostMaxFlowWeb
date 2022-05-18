@@ -10,5 +10,6 @@
 {{--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/graphdracula/1.2.1/dracula.min.js"></script>--}}
 {{--<script type="text/javascript" src="dracula/lib/renderer/raphael.js"></script>--}}
 <script type="text/javascript" src="{{asset('js/dracula/dist/dracula.dev.js')}}"></script>
+<meta name="csrf-token" content="{{ csrf_token() }}">
 {{--<script src="{{ mix('js/dracula/dist/dracula.dev.js') }}"></script>--}}
 {{--<script src="{{ asset('js/app.js') }}"></script>--}}
