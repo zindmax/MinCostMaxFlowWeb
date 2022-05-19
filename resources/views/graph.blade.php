@@ -37,12 +37,14 @@
         <p class="text-end">
             <?echo "Cost: " . $step["cost"]?>
         </p>
+        <div id="canvas"></div>
     @endforeach
     <p>Ответ: </p>
     <p>
-        <?echo "Max Flow: " . $result["result_flow"]?>
+    <?echo "Max Flow: " . $result["result_flow"]?>
     </p>
     <p>
-        <?echo "Answer: " . $result["result_cost"]?>
+    <?echo "Answer: " . $result["result_cost"]?>
     </p>
+    <script src="{{asset('js/graph_generator.js')}}"></script>
 @endsection

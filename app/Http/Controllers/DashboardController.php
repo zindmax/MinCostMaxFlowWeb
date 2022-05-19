@@ -3,23 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class DashboardController extends Controller
 {
     public function index(Request $request) {
-//        dd($request->all());
-//
 //        return $request->all();
-        dd($request->all());
-        $graphData = $request->all();
-        $n = $graphData['n'];
-        $s = $graphData['s'] - 1;
-        $t = $graphData['t'] - 1;
-
+        $graphData = $request->all()['data'];
+        $n = $graphData['0'];
+        $s = $graphData['1'] - 1;
+        $t = $graphData['2'] - 1;
         $g = [];
         $e = [];
 
-        foreach ($graphData['edges'] as $edge) {
+        foreach ($graphData['3'] as $edge) {
             $e1 = new \App\Classes\Edge();
             $e2 = new \App\Classes\Edge();
             $e1->from = $edge["from"] - 1;
@@ -156,6 +153,18 @@ class DashboardController extends Controller
         $result["result_cost"] = $max_cost;
         $result["result_flow"] = $max_flow;
 
-        return view("graph", ["minCostMaxFlow" => $minCostMaxFlow, "result" => $result, "n" => $n]);
+        return response()->json(['edges' => $graphData['3'], "minCostMaxFlow" => $minCostMaxFlow, "result" => $result, "n" => $n]);
+//        return redirect('/graph')->with(["minCostMaxFlow" => $minCostMaxFlow, "result" => $result, "n" => $n]);
+//        return view("graph", ["minCostMaxFlow" => $minCostMaxFlow, "result" => $result, "n" => $n]);
+    }
+
+    public function showGraph(Request $request)
+    {
+        $data = json_decode($request->query('graphData'), true);
+        return view('graph', [
+            "minCostMaxFlow" => $data['minCostMaxFlow'],
+            "result" => $data['result'],
+            "n" => $data['n'],
+        ]);
     }
 }

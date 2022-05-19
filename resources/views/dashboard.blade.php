@@ -5,7 +5,7 @@
 @section("content")
     <div class="d-flex flex-row">
         <div class="d-flex flex-column">
-            <form action="{{ route("algo") }}" method="POST" id="min_cost">
+            <form action="/graph" method="POST" id="min_cost">
                 @csrf
                 <div class="mb-2 d-flex flex-row">
                     <div class="d-flex flex-column me-2">
@@ -40,7 +40,7 @@
                             <label for="edge_cost">Cost</label>
                             <input type="number" name="edges" placeholder="cost" id="edge_cost" value="4">
                         </div>
-{{--                        <input type="hidden" value="0" id="total_edges">--}}
+
                     </div>
                     <div class="d-flex flex-row mb-2">
                         <div class="d-flex flex-column me-2">

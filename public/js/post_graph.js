@@ -19,10 +19,10 @@ $('#submit').on('click', async e => {
         });
     }
     data.push(edges);
-    // console.log(edges);
+
     let token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
-    await fetch('/graph', {
+    const response = await fetch('/graph', {
         method: 'post',
         headers: {
             'content-type': 'application/json',
@@ -32,4 +32,7 @@ $('#submit').on('click', async e => {
         body: JSON.stringify({data})
     });
 
+    const graphData = encodeURIComponent(await response.text());
+
+    window.location.href = '/graph?graphData=' + graphData;
 });

@@ -1,6 +1,5 @@
 /* connect nodes with edges */
 window.onload = function() {
-    var g = new Dracula.Graph();
 
     var render = function(r, n) {
         var label = r.text(0, 0, n.label).attr({fill: '#000000', 'font-size': 20})
@@ -12,94 +11,132 @@ window.onload = function() {
             .push(label)
         return set
     }
+    new URLSearchParams(window.location.search).get('graphData');
+
+    let data = JSON.parse(new URLSearchParams(window.location.search).get('graphData'));
+    const edges = data['edges'];
+    const algoResult = data['minCostMaxFlow'];
+    let edge_label = '';
+    console.log(data['edges']);
+    for (let i = 0; i < algoResult.length - 1; i++) {
+        let g = new Dracula.Graph();
+        const v_w = algoResult[i]['v_w'];
+        const track = algoResult[i]['track'];
+        for (let j = 0; j < edges.length; j++) {
+            edge_label = edge_label.concat(edges[j].capacity, '\\', edges[j].cost);
+            g.addNode(edges[j].from, { render: render, label: edges[j].from });
+            g.addNode(edges[j].to, { render: render, label: edges[j].to });
+
+            g.addEdge(edges[j].from, edges[j].to, {
+                directed: true,
+                label: edge_label,
+                label1: v_w[edges[j].from - 1],
+                label2: v_w[edges[j].to - 1],
+            });
+            edge_label = '';
+            for (let k = 0; k < track.length; k++) {
+                // console.log(track[k], )
+                if (track[k] == edges[j].from - 1 && track[k+1] == edges[j].to - 1) {
+                    g.edges[i]['style'].fill = '#FF0000';
+                    break;
+                }
+            }
+            console.log(g.edges[i])
+        }
+        var layouter = new Dracula.Layout.Spring(g);
+        layouter.layout();
+        var renderer = new Dracula.Renderer.Raphael('#canvas', g, 1100, 650);
+        renderer.draw();
+        console.log(g.edges)
+    }
 //, x: 50, y: 250
     //x: 900, y: 250
-    g.addNode("1", {render : render, label : "1"});
-    g.addNode("2", {render : render, label : "2"});
-    g.addNode("3", {render : render, label : "3"});
-    g.addNode("4", {render : render, label : "4"});
-    g.addNode("5", {render : render, label : "5"});
-    g.addNode("6", {render : render, label : "6"});
-    g.addNode("7", {render : render, label : "7"});
-    g.addNode("8", {render : render, label : "8"});
+    // g.addNode("1", {render : render, label : "1"});
+    // g.addNode("2", {render : render, label : "2"});
+    // g.addNode("3", {render : render, label : "3"});
+    // g.addNode("4", {render : render, label : "4"});
+    // g.addNode("5", {render : render, label : "5"});
+    // g.addNode("6", {render : render, label : "6"});
+    // g.addNode("7", {render : render, label : "7"});
+    // g.addNode("8", {render : render, label : "8"});
+    //
+    // g.addEdge("1", "2", {
+    //     directed : true,
+    //     label: 'Label',
+    //     label1: 0,
+    //     label2: 1,
+    //     style:{'font-size': '#000000'}
+    // });
+    // g.addEdge("1", "3", {
+    //     directed : true,
+    //     label: 'Label',
+    //     label1: 0,
+    // });
+    // g.addEdge("2", "3", {
+    //     directed : true,
+    //     label: 'Label',
+    //     label1: 0,
+    // });
+    // g.addEdge("2", "4", {
+    //     directed : true,
+    //     label: 'Label',
+    //     label1: 0,
+    // });
+    // g.addEdge("3", "5", {
+    //     directed : true,
+    //     label: 'Label',
+    //     label1: 0,
+    // });
+    // g.addEdge("4", "6", {
+    //     directed : true,
+    //     label: 'Label',
+    //     label1: 0,
+    // });
+    // g.addEdge("5", "4", {
+    //     directed : true,
+    //     label: 'Label',
+    //     label1: 0,
+    // });
+    // g.addEdge("5", "7", {
+    //     directed : true,
+    //     label: 'Label',
+    //     label1: 0,
+    // });
+    // g.addEdge("6", "7", {
+    //     directed : true,
+    //     label: 'Label',
+    //     label1: 0,
+    // });
+    // g.addEdge("6", "8", {
+    //     directed : true,
+    //     label: 'Label',
+    //     label1: 0,
+    // });
+    // g.addEdge("7", "8", {
+    //     directed : true,
+    //     label: 'Label',
+    //     label1: 0,
+    // });
 
-    g.addEdge("1", "2", {
-        directed : true,
-        label: 'Label',
-        label1: 0,
-        label2: 1,
-        style:{'font-size': '#000000'}
-    });
-    g.addEdge("1", "3", {
-        directed : true,
-        label: 'Label',
-        label1: 0,
-    });
-    g.addEdge("2", "3", {
-        directed : true,
-        label: 'Label',
-        label1: 0,
-    });
-    g.addEdge("2", "4", {
-        directed : true,
-        label: 'Label',
-        label1: 0,
-    });
-    g.addEdge("3", "5", {
-        directed : true,
-        label: 'Label',
-        label1: 0,
-    });
-    g.addEdge("4", "6", {
-        directed : true,
-        label: 'Label',
-        label1: 0,
-    });
-    g.addEdge("5", "4", {
-        directed : true,
-        label: 'Label',
-        label1: 0,
-    });
-    g.addEdge("5", "7", {
-        directed : true,
-        label: 'Label',
-        label1: 0,
-    });
-    g.addEdge("6", "7", {
-        directed : true,
-        label: 'Label',
-        label1: 0,
-    });
-    g.addEdge("6", "8", {
-        directed : true,
-        label: 'Label',
-        label1: 0,
-    });
-    g.addEdge("7", "8", {
-        directed : true,
-        label: 'Label',
-        label1: 0,
-    });
+    // var layouter = new Dracula.Layout.Spring(g);
+    // layouter.layout();
+    // var renderer = new Dracula.Renderer.Raphael('#canvas', g, 1100, 650);
+    // renderer.draw();
 
-    var layouter = new Dracula.Layout.Spring(g);
-    layouter.layout();
-    var renderer = new Dracula.Renderer.Raphael('#canvas', g, 1100, 650);
-    renderer.draw();
-
-    redraw = function() {
-        g.addEdge("1", "3", {
-            directed : true,
-            label: 'Label',
-            label1: 0,
-        });
-        g.addEdge("2", "3", {
-            directed : true,
-            label: 'Label',
-            label1: 0,
-        });
-        layouter.layout();
-        renderer.draw();
-    }
+    // redraw = function() {
+    //     g.addEdge("1", "3", {
+    //         directed : true,
+    //         label: 'Label',
+    //         label1: 0,
+    //     });
+    //     g.addEdge("2", "3", {
+    //         directed : true,
+    //         label: 'Label',
+    //         label1: 0,
+    //     });
+    //     layouter.layout();
+    //     renderer.draw();
+    // }
     // let g = new Dracula.Graph();
     // //
     // let layouter = new Dracula.Layout.Spring(g);
