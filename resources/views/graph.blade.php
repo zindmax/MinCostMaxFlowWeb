@@ -3,8 +3,8 @@
     @include("_head")
 @endsection
 @section("content")
-    @foreach($minCostMaxFlow as $key => $step)
-        <span><?echo "Шаг " . $key + 1?></span>
+    @foreach($minCostMaxFlow as $stepNum => $step)
+        <span><?echo "Шаг " . $stepNum + 1?></span>
         <table class="table table-bordered">
             <thead>
             <tr>
@@ -19,7 +19,11 @@
                 <tr class="text-end">
                     @foreach($dijkstra as $dijkstra_step)
                         <td>
-                            <?echo $dijkstra_step?>
+                            @if($dijkstra_step === 1000000000)
+                                <?php echo '&#8734'?>
+                            @else
+                                <?php echo $dijkstra_step?>
+                            @endif
                         </td>
                     @endforeach
                 </tr>
@@ -37,7 +41,8 @@
         <p class="text-end">
             <?echo "Cost: " . $step["cost"]?>
         </p>
-        <div id="canvas"></div>
+
+        <div id='<?='canvas'.$stepNum?>'></div>
     @endforeach
     <p>Ответ: </p>
     <p>

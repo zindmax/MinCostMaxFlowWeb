@@ -8,7 +8,7 @@ class Edge
 {
     public $from;
     public $to;
-    public $capasity;
+    public $capacity;
     public $cost;
     public $flow = 0;
     public $w = 0;
