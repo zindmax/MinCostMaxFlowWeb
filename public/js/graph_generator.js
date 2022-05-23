@@ -54,6 +54,7 @@ window.onload = function() {
         for(let j = 0; j < g.edges.length; j++) {
             for (let k = 0; k < track.length - 1; k++) {
                 if (track[k] + 1 === g.edges[j].source.label && track[k+1] + 1 === g.edges[j].target.label) {
+                    let edge = edges.find(el => el.from + 1 === g.edges[j].source.label && el.to + 1 === g.edges[j].target.label);
                     g.edges[j]['style'].fill = '#FF0000';
                     break;
                 }
