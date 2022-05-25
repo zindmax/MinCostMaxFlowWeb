@@ -40,163 +40,163 @@
                             <label for="edge_cost">Cost</label>
                             <input type="number" name="edges" placeholder="cost" id="edge_cost" value="6">
                         </div>
-
                     </div>
-                    <div class="d-flex flex-row mb-2">
-                        <div class="d-flex flex-column me-2">
-                            <input type="number" name="edges" placeholder="from" id="edge_from" value="1">
-                        </div>
-                        <div class="d-flex flex-column me-2">
-                            <input type="number" name="edges" placeholder="to" id="edge_to" value="3">
-                        </div>
-                        <div class="d-flex flex-column me-2">
-                            <input type="number" name="edges" placeholder="capacity" id="edge_capacity" value="25">
-                        </div>
-                        <div class="d-flex flex-column me-2">
-                            <input type="number" name="edges" placeholder="cost" id="edge_cost" value="9">
-                        </div>
-                    </div>
-                    <div class="d-flex flex-row mb-2">
-                        <div class="d-flex flex-column me-2">
-                            <input type="number" name="edges" placeholder="from" id="edge_from" value="2">
-                        </div>
-                        <div class="d-flex flex-column me-2">
-                            <input type="number" name="edges" placeholder="to" id="edge_to" value="3">
-                        </div>
-                        <div class="d-flex flex-column me-2">
-                            <input type="number" name="edges" placeholder="capacity" id="edge_capacity" value="10">
-                        </div>
-                        <div class="d-flex flex-column me-2">
-                            <input type="number" name="edges" placeholder="cost" id="edge_cost" value="2">
-                        </div>
-                    </div>
-                    <div class="d-flex flex-row mb-2">
-                        <div class="d-flex flex-column me-2">
-                            <input type="number" name="edges" placeholder="from" id="edge_from" value="2">
-                        </div>
-                        <div class="d-flex flex-column me-2">
-                            <input type="number" name="edges" placeholder="to" id="edge_to" value="4">
-                        </div>
-                        <div class="d-flex flex-column me-2">
-                            <input type="number" name="edges" placeholder="capacity" id="edge_capacity" value="11">
-                        </div>
-                        <div class="d-flex flex-column me-2">
-                            <input type="number" name="edges" placeholder="cost" id="edge_cost" value="13">
-                        </div>
-                    </div>
-                    <div class="d-flex flex-row mb-2">
-                        <div class="d-flex flex-column me-2">
-                            <input type="number" name="edges" placeholder="from" id="edge_from" value="3">
-                        </div>
-                        <div class="d-flex flex-column me-2">
-                            <input type="number" name="edges" placeholder="to" id="edge_to" value="5">
-                        </div>
-                        <div class="d-flex flex-column me-2">
-                            <input type="number" name="edges" placeholder="capacity" id="edge_capacity" value="35">
-                        </div>
-                        <div class="d-flex flex-column me-2">
-                            <input type="number" name="edges" placeholder="cost" id="edge_cost" value="4">
-                        </div>
-                    </div>
-                    <div class="d-flex flex-row mb-2">
-                        <div class="d-flex flex-column me-2">
-                            <input type="number" name="edges" placeholder="from" id="edge_from" value="5">
-                        </div>
-                        <div class="d-flex flex-column me-2">
-                            <input type="number" name="edges" placeholder="to" id="edge_to" value="4">
-                        </div>
-                        <div class="d-flex flex-column me-2">
-                            <input type="number" name="edges" placeholder="capacity" id="edge_capacity" value="14">
-                        </div>
-                        <div class="d-flex flex-column me-2">
-                            <input type="number" name="edges" placeholder="cost" id="edge_cost" value="5">
-                        </div>
-                    </div>
-                    <div class="d-flex flex-row mb-2">
-                        <div class="d-flex flex-column me-2">
-                            <input type="number" name="edges" placeholder="from" id="edge_from" value="4">
-                        </div>
-                        <div class="d-flex flex-column me-2">
-                            <input type="number" name="edges" placeholder="to" id="edge_to" value="6">
-                        </div>
-                        <div class="d-flex flex-column me-2">
-                            <input type="number" name="edges" placeholder="capacity" id="edge_capacity" value="30">
-                        </div>
-                        <div class="d-flex flex-column me-2">
-                            <input type="number" name="edges" placeholder="cost" id="edge_cost" value="3">
-                        </div>
-                    </div>
-                    <div class="d-flex flex-row mb-2">
-                        <div class="d-flex flex-column me-2">
 
-                            <input type="number" name="edges" placeholder="from" id="edge_from" value="5">
-                        </div>
-                        <div class="d-flex flex-column me-2">
+{{--                    <div class="d-flex flex-row mb-2">--}}
+{{--                        <div class="d-flex flex-column me-2">--}}
+{{--                            <input type="number" name="edges" placeholder="from" id="edge_from" value="1">--}}
+{{--                        </div>--}}
+{{--                        <div class="d-flex flex-column me-2">--}}
+{{--                            <input type="number" name="edges" placeholder="to" id="edge_to" value="3">--}}
+{{--                        </div>--}}
+{{--                        <div class="d-flex flex-column me-2">--}}
+{{--                            <input type="number" name="edges" placeholder="capacity" id="edge_capacity" value="25">--}}
+{{--                        </div>--}}
+{{--                        <div class="d-flex flex-column me-2">--}}
+{{--                            <input type="number" name="edges" placeholder="cost" id="edge_cost" value="9">--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                    <div class="d-flex flex-row mb-2">--}}
+{{--                        <div class="d-flex flex-column me-2">--}}
+{{--                            <input type="number" name="edges" placeholder="from" id="edge_from" value="2">--}}
+{{--                        </div>--}}
+{{--                        <div class="d-flex flex-column me-2">--}}
+{{--                            <input type="number" name="edges" placeholder="to" id="edge_to" value="3">--}}
+{{--                        </div>--}}
+{{--                        <div class="d-flex flex-column me-2">--}}
+{{--                            <input type="number" name="edges" placeholder="capacity" id="edge_capacity" value="10">--}}
+{{--                        </div>--}}
+{{--                        <div class="d-flex flex-column me-2">--}}
+{{--                            <input type="number" name="edges" placeholder="cost" id="edge_cost" value="2">--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                    <div class="d-flex flex-row mb-2">--}}
+{{--                        <div class="d-flex flex-column me-2">--}}
+{{--                            <input type="number" name="edges" placeholder="from" id="edge_from" value="2">--}}
+{{--                        </div>--}}
+{{--                        <div class="d-flex flex-column me-2">--}}
+{{--                            <input type="number" name="edges" placeholder="to" id="edge_to" value="4">--}}
+{{--                        </div>--}}
+{{--                        <div class="d-flex flex-column me-2">--}}
+{{--                            <input type="number" name="edges" placeholder="capacity" id="edge_capacity" value="11">--}}
+{{--                        </div>--}}
+{{--                        <div class="d-flex flex-column me-2">--}}
+{{--                            <input type="number" name="edges" placeholder="cost" id="edge_cost" value="13">--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                    <div class="d-flex flex-row mb-2">--}}
+{{--                        <div class="d-flex flex-column me-2">--}}
+{{--                            <input type="number" name="edges" placeholder="from" id="edge_from" value="3">--}}
+{{--                        </div>--}}
+{{--                        <div class="d-flex flex-column me-2">--}}
+{{--                            <input type="number" name="edges" placeholder="to" id="edge_to" value="5">--}}
+{{--                        </div>--}}
+{{--                        <div class="d-flex flex-column me-2">--}}
+{{--                            <input type="number" name="edges" placeholder="capacity" id="edge_capacity" value="35">--}}
+{{--                        </div>--}}
+{{--                        <div class="d-flex flex-column me-2">--}}
+{{--                            <input type="number" name="edges" placeholder="cost" id="edge_cost" value="4">--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                    <div class="d-flex flex-row mb-2">--}}
+{{--                        <div class="d-flex flex-column me-2">--}}
+{{--                            <input type="number" name="edges" placeholder="from" id="edge_from" value="5">--}}
+{{--                        </div>--}}
+{{--                        <div class="d-flex flex-column me-2">--}}
+{{--                            <input type="number" name="edges" placeholder="to" id="edge_to" value="4">--}}
+{{--                        </div>--}}
+{{--                        <div class="d-flex flex-column me-2">--}}
+{{--                            <input type="number" name="edges" placeholder="capacity" id="edge_capacity" value="14">--}}
+{{--                        </div>--}}
+{{--                        <div class="d-flex flex-column me-2">--}}
+{{--                            <input type="number" name="edges" placeholder="cost" id="edge_cost" value="5">--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                    <div class="d-flex flex-row mb-2">--}}
+{{--                        <div class="d-flex flex-column me-2">--}}
+{{--                            <input type="number" name="edges" placeholder="from" id="edge_from" value="4">--}}
+{{--                        </div>--}}
+{{--                        <div class="d-flex flex-column me-2">--}}
+{{--                            <input type="number" name="edges" placeholder="to" id="edge_to" value="6">--}}
+{{--                        </div>--}}
+{{--                        <div class="d-flex flex-column me-2">--}}
+{{--                            <input type="number" name="edges" placeholder="capacity" id="edge_capacity" value="30">--}}
+{{--                        </div>--}}
+{{--                        <div class="d-flex flex-column me-2">--}}
+{{--                            <input type="number" name="edges" placeholder="cost" id="edge_cost" value="3">--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                    <div class="d-flex flex-row mb-2">--}}
+{{--                        <div class="d-flex flex-column me-2">--}}
 
-                            <input type="number" name="edges" placeholder="to" id="edge_to" value="7">
-                        </div>
-                        <div class="d-flex flex-column me-2">
+{{--                            <input type="number" name="edges" placeholder="from" id="edge_from" value="5">--}}
+{{--                        </div>--}}
+{{--                        <div class="d-flex flex-column me-2">--}}
 
-                            <input type="number" name="edges" placeholder="capacity" id="edge_capacity" value="9">
-                        </div>
-                        <div class="d-flex flex-column me-2">
+{{--                            <input type="number" name="edges" placeholder="to" id="edge_to" value="7">--}}
+{{--                        </div>--}}
+{{--                        <div class="d-flex flex-column me-2">--}}
 
-                            <input type="number" name="edges" placeholder="cost" id="edge_cost" value="20">
-                        </div>
-                    </div>
-                    <div class="d-flex flex-row mb-2">
-                            <div class="d-flex flex-column me-2">
+{{--                            <input type="number" name="edges" placeholder="capacity" id="edge_capacity" value="9">--}}
+{{--                        </div>--}}
+{{--                        <div class="d-flex flex-column me-2">--}}
 
-                                <input type="number" name="edges" placeholder="from" id="edge_from" value="6">
-                            </div>
-                            <div class="d-flex flex-column me-2">
+{{--                            <input type="number" name="edges" placeholder="cost" id="edge_cost" value="20">--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                    <div class="d-flex flex-row mb-2">--}}
+{{--                            <div class="d-flex flex-column me-2">--}}
 
-                                <input type="number" name="edges" placeholder="to" id="edge_to" value="7">
-                            </div>
-                            <div class="d-flex flex-column me-2">
+{{--                                <input type="number" name="edges" placeholder="from" id="edge_from" value="6">--}}
+{{--                            </div>--}}
+{{--                            <div class="d-flex flex-column me-2">--}}
 
-                                <input type="number" name="edges" placeholder="capacity" id="edge_capacity" value="12">
-                            </div>
-                            <div class="d-flex flex-column me-2">
+{{--                                <input type="number" name="edges" placeholder="to" id="edge_to" value="7">--}}
+{{--                            </div>--}}
+{{--                            <div class="d-flex flex-column me-2">--}}
 
-                                <input type="number" name="edges" placeholder="cost" id="edge_cost" value="3">
-                            </div>
-                    </div>
-                    <div class="d-flex flex-row mb-2">
-                        <div class="d-flex flex-column me-2">
+{{--                                <input type="number" name="edges" placeholder="capacity" id="edge_capacity" value="12">--}}
+{{--                            </div>--}}
+{{--                            <div class="d-flex flex-column me-2">--}}
 
-                            <input type="number" name="edges" placeholder="from" id="edge_from" value="6">
-                        </div>
-                        <div class="d-flex flex-column me-2">
+{{--                                <input type="number" name="edges" placeholder="cost" id="edge_cost" value="3">--}}
+{{--                            </div>--}}
+{{--                    </div>--}}
+{{--                    <div class="d-flex flex-row mb-2">--}}
+{{--                        <div class="d-flex flex-column me-2">--}}
 
-                            <input type="number" name="edges" placeholder="to" id="edge_to" value="8">
-                        </div>
-                        <div class="d-flex flex-column me-2">
+{{--                            <input type="number" name="edges" placeholder="from" id="edge_from" value="6">--}}
+{{--                        </div>--}}
+{{--                        <div class="d-flex flex-column me-2">--}}
 
-                            <input type="number" name="edges" placeholder="capacity" id="edge_capacity" value="18">
-                        </div>
-                        <div class="d-flex flex-column me-2">
+{{--                            <input type="number" name="edges" placeholder="to" id="edge_to" value="8">--}}
+{{--                        </div>--}}
+{{--                        <div class="d-flex flex-column me-2">--}}
 
-                            <input type="number" name="edges" placeholder="cost" id="edge_cost" value="10">
-                        </div>
-                    </div>
-                    <div class="d-flex flex-row mb-2">
-                        <div class="d-flex flex-column me-2">
+{{--                            <input type="number" name="edges" placeholder="capacity" id="edge_capacity" value="18">--}}
+{{--                        </div>--}}
+{{--                        <div class="d-flex flex-column me-2">--}}
 
-                            <input type="number" name="edges" placeholder="from" id="edge_from" value="7">
-                        </div>
-                        <div class="d-flex flex-column me-2">
+{{--                            <input type="number" name="edges" placeholder="cost" id="edge_cost" value="10">--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                    <div class="d-flex flex-row mb-2">--}}
+{{--                        <div class="d-flex flex-column me-2">--}}
 
-                            <input type="number" name="edges" placeholder="to" id="edge_to" value="8">
-                        </div>
-                        <div class="d-flex flex-column me-2">
+{{--                            <input type="number" name="edges" placeholder="from" id="edge_from" value="7">--}}
+{{--                        </div>--}}
+{{--                        <div class="d-flex flex-column me-2">--}}
 
-                            <input type="number" name="edges" placeholder="capacity" id="edge_capacity" value="19">
-                        </div>
-                        <div class="d-flex flex-column me-2">
-                            <input type="number" name="edges" placeholder="cost" id="edge_cost" value="11">
-                        </div>
-                    </div>
+{{--                            <input type="number" name="edges" placeholder="to" id="edge_to" value="8">--}}
+{{--                        </div>--}}
+{{--                        <div class="d-flex flex-column me-2">--}}
+
+{{--                            <input type="number" name="edges" placeholder="capacity" id="edge_capacity" value="19">--}}
+{{--                        </div>--}}
+{{--                        <div class="d-flex flex-column me-2">--}}
+{{--                            <input type="number" name="edges" placeholder="cost" id="edge_cost" value="11">--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
                 </div>
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-2">
                     <button type="submit" id="submit" class="btn btn-primary">Go!</button>
@@ -206,12 +206,6 @@
                 <button type="button" class="add btn btn-primary">Add Edge</button>
                 <button type="button" class="remove btn btn-primary">Remove Edge</button>
             </div>
-        </div>
-    </div>
-    <div class="d-flex justify-content-center">
-        <div id="canvas"></div>
-        <div>
-            <button id="redraw" onclick="redraw();">redraw</button>
         </div>
     </div>
     <script src="{{asset('js/edges.js')}}"></script>

@@ -68,8 +68,6 @@ class DashboardController extends Controller
         //mincost
         $max_cost = 0;
         $max_flow = 0;
-        $edges_w = array_fill(0, count($e), 0);
-        $edges_flow = array_fill(0, count($e), 0);
         for (;;) {
             if ($v_w[$t] >= $INF) {
                 $step["track"] = [];
@@ -88,18 +86,17 @@ class DashboardController extends Controller
             }
             $max_flow += $maxFlow;
             $max_cost += $maxFlow * $v_w[$t];
-            $step['edges_flow'] = $edges_flow;
-            $edges_flow = [];
             for ($i = count($p) - 1; $p[$i] !== -1; $i = $e[$p[$i]]->from) {
                 $e[$p[$i]]->flow += $maxFlow;
                 $e[$p[$i] ^ 1]->flow -= $maxFlow;
             }
             //get edges flow
+            $edges_flow = [];
             foreach ($e as $edge) {
                 $edges_flow[] = $edge->flow;
             }
+            $step['edges_flow'] = $edges_flow;
             //new edge w
-            $step['edges_w'] = $edges_w;
             $edges_w = [];
             for ($i = 0; $i < $m; $i+=2) {
                 if ($e[$i]->capacity === $e[$i]->flow) {
@@ -112,6 +109,7 @@ class DashboardController extends Controller
                 $edges_w[] = $e[$i]->w;
                 $edges_w[] = $e[$i ^ 1]->w;
             }
+            $step['edges_w'] = $edges_w;
             $step['v_w'] = $v_w;
             $step['track'] = $P;
             $step['flow'] = $maxFlow;

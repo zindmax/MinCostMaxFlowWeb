@@ -7267,69 +7267,58 @@ Raphael.fn.connection = function Connection(obj1, obj2, style) {
       /* setting label */
     if (style && style.label) {
         /* vars for second and third edge labels */
-        var obj1_center_x = (obj1.getBBox()['x'] + obj1.getBBox()['x2']) / 2
-        var obj1_center_y = (obj1.getBBox()['y'] + obj1.getBBox()['y2']) / 2
-        var obj2_center_x = (obj2.getBBox()['x'] + obj2.getBBox()['x2']) / 2
-        var obj2_center_y = (obj2.getBBox()['y'] + obj2.getBBox()['y2']) / 2
+        var obj1_center_x = (obj1.getBBox()['x'] + obj1.getBBox()['x2']) / 2;
+        var obj1_center_y = (obj1.getBBox()['y'] + obj1.getBBox()['y2']) / 2;
+        var obj2_center_x = (obj2.getBBox()['x'] + obj2.getBBox()['x2']) / 2;
+        var obj2_center_y = (obj2.getBBox()['y'] + obj2.getBBox()['y2']) / 2;
         var label_x = (x1 + x4) / 2;
         var label_y = (y1 + y4) / 2 - 20;
-        var label_x1 = 0;
-        var label_y1 = 0;
-        var label_x2 = 0;
-        var label_y2 = 0;
+        var label_x1 = x1 + 20;
+        var label_y1 = y1 + 20;
+        var label_x2 = x4 - 20;
+        var label_y2 = y4 + 20;
+        let paperHeight = self.height;
         //1 2
-        //obj1_center_y < obj2_center_y
+        if (obj1_center_y < paperHeight / 2 && obj2_center_y < paperHeight / 2) {
+            label_y1 = y1 - 20;
+            label_y2 = y4 - 20;
+        }
+
         if (x1 < obj1_center_x && x1 > obj2_center_x) {
-            if (obj1_center_y <= obj2_center_y) {
-                label_x1 = x1 - 20
-                label_y1 = y1 - 20
-                label_x2 = x4 + 20
-                label_y2 = y4 - 20
+            if (obj1_center_y < obj2_center_y) {
+                label_x1 = x1 - 20;
+                label_y1 = y1 - 20;
+                label_x2 = x4 + 20;
+                label_y2 = y4 - 20;
             }
-            if (obj1_center_y >= obj2_center_y) {
-                label_x1 = x1 - 30
-                label_y1 = y1 - 20
-                label_x2 = x4 + 30
-                label_y2 = y4 + 20
+            if (obj1_center_y > obj2_center_y) {
+                label_x1 = x1 - 20;
+                label_y1 = y1 - 20;
+                label_x2 = x4 + 20;
             }
         }
         //2 1
-        if (x1 > obj1_center_x && x1 < obj2_center_x) {
-            if (obj1_center_y <= obj2_center_y) {
-                label_x1 = x1 + 20
-                label_y1 = y1 + 20
-                label_x2 = x4 - 20
-                label_y2 = y4 - 20
+        if (obj1_center_x < obj2_center_x) {
+            if (obj1_center_y < obj2_center_y) {
+                label_x += 40;
+                label_y2 = y4 - 20;
             }
-            if (obj1_center_y >= obj2_center_y) {
-                label_x1 = x1 + 20
-                label_y1 = y1 - 20
-                label_x2 = x4 - 20
-                label_y2 = y4 + 20
-            }else {
-                label_x1 = x1 + 20
-                label_y1 = y1 + 20
-                label_x2 = x4 - 20
-                label_y2 = y4 - 20
+            if (obj1_center_y > obj2_center_y) {
+                label_x -= 40;
+                label_y1 = y1 - 20;
             }
         }
         //up
         if (y1 < obj1_center_y && y4 > obj2_center_y) {
-            label_x += 50
-            label_y += 20
-            label_x1 = x1 + 20
-            label_y1 = y1 - 20
-            label_x2 = x4 + 20
-            label_y2 = y4 + 20
+            label_x += 40;
+            label_y1 = y1 - 20;
+            label_x2 = x4 + 20;
         }
         //down
         if (y1 > obj1_center_y && y4 < obj2_center_y) {
-            label_x += 20
-            label_y += 20
-            label_x1 = x1 + 20
-            label_y1 = y1 + 20
-            label_x2 = x4 + 20
-            label_y2 = y4 - 20
+            label_x += 40;
+            label_x2 = x4 + 20;
+            label_y2 = y4 - 20;
         }
 
         if (edge.label) {

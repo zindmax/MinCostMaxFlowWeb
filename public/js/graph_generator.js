@@ -22,6 +22,7 @@ window.onload = function() {
     let edge_label = '';
     let nodeX = 50;
     let nodeY = height / 2;
+    console.log(data);
     for (let i = 0; i < algoResult.length; i++) {
         let g = new Dracula.Graph();
         const track = algoResult[i]['track'];
@@ -53,9 +54,14 @@ window.onload = function() {
         }
         for(let j = 0; j < g.edges.length; j++) {
             for (let k = 0; k < track.length - 1; k++) {
-                if (track[k] + 1 === g.edges[j].source.label && track[k+1] + 1 === g.edges[j].target.label) {
-                    let edge = edges.find(el => el.from + 1 === g.edges[j].source.label && el.to + 1 === g.edges[j].target.label);
+                let from = g.edges[j].source.label;
+                let to = g.edges[j].target.label;
+                if (track[k] + 1 === from && track[k+1] + 1 === to) {
                     g.edges[j]['style'].fill = '#FF0000';
+                    break;
+                }
+                if (track[k] + 1 === to && track[k+1] + 1 === from) {
+                    g.edges[j]['style'].fill = '#0000FF';
                     break;
                 }
             }
