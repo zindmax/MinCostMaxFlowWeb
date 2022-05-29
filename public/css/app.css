@@ -1,1 +1,15 @@
-
+/*.dropdown {*/
+/*    position: relative;*/
+/*    display: inline-block;*/
+/*}*/
+/*.dropdown-item {*/
+/*    display: none;*/
+/*    min-width: 100%;*/
+/*    z-index: 1;*/
+/*}*/
+/*.dropdown:active .dropdown-item {*/
+/*    display: block;*/
+/*}*/
+/*.step-table {*/
+/*    display: none;*/
+/*}*/

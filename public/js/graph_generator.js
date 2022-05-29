@@ -22,7 +22,6 @@ window.onload = function() {
     let edge_label = '';
     let nodeX = 50;
     let nodeY = height / 2;
-    console.log(data);
     for (let i = 0; i < algoResult.length; i++) {
         let g = new Dracula.Graph();
         const track = algoResult[i]['track'];

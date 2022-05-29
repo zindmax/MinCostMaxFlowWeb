@@ -8,8 +8,4 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.3.0/raphael.min.js"></script>
-{{--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/graphdracula/1.2.1/dracula.min.js"></script>--}}
-{{--<script type="text/javascript" src="dracula/lib/renderer/raphael.js"></script>--}}
 <script type="text/javascript" src="{{asset('js/dracula.dev.js')}}"></script>
-{{--<script src="{{ mix('js/dracula/dist/dracula.dev.js') }}"></script>--}}
-{{--<script src="{{ asset('js/app.js') }}"></script>--}}

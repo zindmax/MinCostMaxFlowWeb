@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
 
 class DashboardController extends Controller
 {
@@ -31,6 +30,7 @@ class DashboardController extends Controller
             $g[$edge["to"] - 1][] = count($e);
             $e[] = $e2;
         }
+
         $INF = 1000*1000*1000;
         $v_w = array_fill(0, $n, 0);
         $P = [];
@@ -63,7 +63,7 @@ class DashboardController extends Controller
         $P = array_reverse($P);
 
         for ($i = 0; $i < $n; $i++) {
-            $v_w[$i] = $d[$i];
+            $v_w[$i] = $d[$i] - 1;
         }
         //mincost
         $max_cost = 0;
