@@ -18,17 +18,22 @@
                         @foreach($step['v_w'] as $index => $w)
                             <tr class="text-end">
                                 <td>{{$index + 1}}</td>
+                                @if ($stepNum > 0)
                                 <td>{{$w + 1}}</td>
+                                @else
+                                <td>{{$w}}</td>
+                                @endif
                             </tr>
                         @endforeach
                     </table>
                 </div>
-                {{--                onclick="showTable({{$stepNum + 1}})"--}}
                 <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
                 <a class="next" onclick="plusSlides(1)">&#10095;</a>
-                <span><?php echo "Шаг " . $stepNum + 1?></span>
+                <button type="button" class="btn btn-secondary mb-2" onclick="showTable({{$stepNum + 1}})">
+                    <?php echo "Шаг " . $stepNum + 1?>
+                </button>
                 <div>
-                    <table id="{{$stepNum + 1}}" class="table table-bordered step-table">
+                    <table id="{{$stepNum + 1}}" class="table table-bordered d-table d-none">
                         <thead>
                         <tr>
                             @for($i = 0; $i < $n; $i++)
@@ -38,6 +43,7 @@
                             @endfor
                         </tr>
                         </thead>
+                        <tbody>
                         @foreach($step["dijkstra"] as $key => $dijkstra)
                             <tr class="text-end">
                                 @foreach($dijkstra as $dijkstra_step)
@@ -51,6 +57,7 @@
                                 @endforeach
                             </tr>
                         @endforeach
+                        </tbody>
                     </table>
                     <p class="text-end">
                         <span>Track: </span>
@@ -59,19 +66,21 @@
                         @endforeach
                     </p>
                     <p class="text-end">
-                        <?php echo "Flow: " . $step["flow"]?>
-                    </p>
-                    <p class="text-end">
                         <?php echo "Cost: " . $step["cost"]?>
                     </p>
+                    <p class="text-end">
+                        <?php echo "Flow: " . $step["flow"]?>
+                    </p>
                 </div>
-                <p>Ответ: </p>
-                <p>
-                    <?php echo "Max Flow: " . $result["result_flow"]?>
-                </p>
-                <p>
-                    <?php echo "Max Cost: " . $result["result_cost"]?>
-                </p>
+                @if ($stepNum === count($minCostMaxFlow) - 1)
+                    <p>Ответ: </p>
+                    <p>
+                        <?php echo "Max Flow: " . $result["result_flow"]?>
+                    </p>
+                    <p>
+                        <?php echo "Max Cost: " . $result["result_cost"]?>
+                    </p>
+                @endif
             </div>
         @endforeach
     </div>

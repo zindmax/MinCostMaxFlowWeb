@@ -7153,6 +7153,7 @@ var getConnectionPoints = function getConnectionPoints(obj1, obj2) {
   var off1 = 0;
   var off2 = 0;
 
+  // console.log(off1, off2);
   return [
 
   /* NORTH 1 */
@@ -7177,7 +7178,8 @@ var getConnectionPoints = function getConnectionPoints(obj1, obj2) {
   { x: bb2.x - off2, y: bb2.y + bb2.height / 2 },
 
   /* EAST  2 */
-  { x: bb2.x + bb2.width + off2, y: bb2.y + bb2.height / 2 }];
+  { x: bb2.x + bb2.width + off2, y: bb2.y + bb2.height / 2 },
+  ];
 };
 
 Raphael.fn.connection = function Connection(obj1, obj2, style) {
@@ -7300,11 +7302,21 @@ Raphael.fn.connection = function Connection(obj1, obj2, style) {
         //2 1
         if (obj1_center_x < obj2_center_x) {
             if (obj1_center_y < obj2_center_y) {
-                label_x += 40;
+                if (obj2_center_y > paperHeight / 2) {
+                    label_x -= 40;
+                    label_y += 20;
+                }else{
+                    label_x += 40;
+                }
                 label_y2 = y4 - 20;
             }
             if (obj1_center_y > obj2_center_y) {
-                label_x -= 40;
+                if (obj1_center_y > paperHeight / 2) {
+                    label_y += 20;
+                    label_x += 50;
+                }else{
+                    label_x -= 40;
+                }
                 label_y1 = y1 - 20;
             }
         }
@@ -7323,8 +7335,10 @@ Raphael.fn.connection = function Connection(obj1, obj2, style) {
 
         if (edge.label) {
           edge.label.attr({ x: label_x, y: label_y});
-          edge.label1.attr({ x: label_x1, y: label_y1});
-          edge.label2.attr({ x: label_x2, y: label_y2});
+          // if (edge.label1 && edge.label2) {
+              edge.label1.attr({ x: label_x1, y: label_y1});
+              edge.label2.attr({ x: label_x2, y: label_y2});
+          // }
         } else {
           edge.label = self.text(label_x, label_y, style.label).attr({
             fill: '#000',
@@ -7332,23 +7346,27 @@ Raphael.fn.connection = function Connection(obj1, obj2, style) {
             'fill-opacity': '1',
             'background': '#FFFFFF'
           });
-          edge.label1 = self.text(label_x1, label_y1, style.label1).attr({
-              fill: '#000',
-              'font-size': style['font-size'] || '20px',
-              'fill-opacity': '1'
-          });
-          edge.label2 = self.text(label_x2, label_y2, style.label2).attr({
-              fill: '#000',
-              'font-size': style['font-size'] || '20px',
-              'fill-opacity': '1'
-          });
+          // if (edge.label1 && edge.label2) {
+              edge.label1 = self.text(label_x1, label_y1, style.label1).attr({
+                  fill: '#000',
+                  'font-size': style['font-size'] || '20px',
+                  'fill-opacity': '1'
+              });
+              edge.label2 = self.text(label_x2, label_y2, style.label2).attr({
+                  fill: '#000',
+                  'font-size': style['font-size'] || '20px',
+                  'fill-opacity': '1'
+              });
+          // }
         }
       }
 
       if (style && style.label && style['label-style'] && edge.label) {
         edge.label.attr(style['label-style']);
-        edge.label1.attr(style['label-style']);
-          edge.label2.attr(style['label-style']);
+          // if (edge.label1 && edge.label2) {
+              edge.label1.attr(style['label-style']);
+              edge.label2.attr(style['label-style']);
+          // }
       }
 
       if (style && style.callback) {

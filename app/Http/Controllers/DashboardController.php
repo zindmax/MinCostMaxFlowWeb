@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Classes\Algo;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -11,25 +12,10 @@ class DashboardController extends Controller
         $n = $graphData['0'];
         $s = $graphData['1'] - 1;
         $t = $graphData['2'] - 1;
-        $g = [];
-        $e = [];
 
-        foreach ($graphData['3'] as $edge) {
-            $e1 = new \App\Classes\Edge();
-            $e2 = new \App\Classes\Edge();
-            $e1->from = $edge["from"] - 1;
-            $e1->to = $edge["to"] - 1;
-            $e1->capacity = (int)$edge["capacity"];
-            $e1->cost = (int)$edge["cost"];
-            $e2->from = $e1->to;
-            $e2->to = $e1->from;
-            $e2->capacity = 0;
-            $e2->cost = -$e1->cost;
-            $g[$edge["from"] - 1][] = count($e);
-            $e[] = $e1;
-            $g[$edge["to"] - 1][] = count($e);
-            $e[] = $e2;
-        }
+        $graph_info = (new \App\Classes\Algo())->fillEdges($graphData['3']);
+        $e = $graph_info['e'];
+        $g = $graph_info['g'];
 
         $INF = 1000*1000*1000;
         $v_w = array_fill(0, $n, 0);
@@ -62,11 +48,22 @@ class DashboardController extends Controller
         $P[] = $s;
         $P = array_reverse($P);
 
+        $step['v_w'] = $v_w;
+
         for ($i = 0; $i < $n; $i++) {
             $v_w[$i] = $d[$i] - 1;
         }
-        //mincost
-        $max_cost = 0;
+
+        foreach ($e as $edge) {
+            $step['edges_w'][] = $edge->cost;
+        }
+
+        $step['edges_flow'] = array_fill(0, count($e), 0);
+        $step['track'] = $P;
+        $step['cost'] = $d[$t];
+        $step['dijkstra'] = $dijkstra;
+//        mincost
+        $min_cost = 0;
         $max_flow = 0;
         for (;;) {
             if ($v_w[$t] >= $INF) {
@@ -84,8 +81,11 @@ class DashboardController extends Controller
                     $maxFlow = $e[$p[$i]]->capacity - $e[$p[$i]]->flow;
                 }
             }
+            $step['flow'] = $maxFlow;
+            $minCostMaxFlow[] = $step;
+
             $max_flow += $maxFlow;
-            $max_cost += $maxFlow * $v_w[$t];
+            $min_cost += $maxFlow * $v_w[$t];
             for ($i = count($p) - 1; $p[$i] !== -1; $i = $e[$p[$i]]->from) {
                 $e[$p[$i]]->flow += $maxFlow;
                 $e[$p[$i] ^ 1]->flow -= $maxFlow;
@@ -109,13 +109,6 @@ class DashboardController extends Controller
                 $edges_w[] = $e[$i]->w;
                 $edges_w[] = $e[$i ^ 1]->w;
             }
-            $step['edges_w'] = $edges_w;
-            $step['v_w'] = $v_w;
-            $step['track'] = $P;
-            $step['flow'] = $maxFlow;
-            $step['cost'] = $d[$t];
-            $step['dijkstra'] = $dijkstra;
-            $minCostMaxFlow[] = $step;
             //dijkstra
             $d = array_fill(0, $n, $INF);
             $u = array_fill(0, $n, false);
@@ -147,6 +140,8 @@ class DashboardController extends Controller
                 }
             }
 
+            $step['v_w'] = $v_w;
+
             for ($j = 0; $j < $n; $j++) {
                 $v_w[$j] += $d[$j];
             }
@@ -157,20 +152,29 @@ class DashboardController extends Controller
             }
             $P[] = $s;
             $P = array_reverse($P);
+            $step['edges_w'] = $edges_w;
+            $step['dijkstra'] = $dijkstra;
+            $step['track'] = $P;
+            $step['cost'] = $d[$t];
         }
-        $result["result_cost"] = $max_cost;
-        $result["result_flow"] = $max_flow;
 
-        return response()->json(['edges' => $e, "minCostMaxFlow" => $minCostMaxFlow, "result" => $result, "n" => $n]);
+        $result['result_cost'] = $min_cost;
+        $result['result_flow'] = $max_flow;
+
+        return response()->json([
+            'edges' => $e,
+            'minCostMaxFlow' => $minCostMaxFlow,
+            'result' => $result,
+            'n' => $n]);
     }
 
     public function showGraph(Request $request)
     {
         $data = json_decode($request->query('graphData'), true);
         return view('graph', [
-            "minCostMaxFlow" => $data['minCostMaxFlow'],
-            "result" => $data['result'],
-            "n" => $data['n'],
+            'minCostMaxFlow' => $data['minCostMaxFlow'],
+            'result' => $data['result'],
+            'n' => $data['n'],
         ]);
     }
 }
