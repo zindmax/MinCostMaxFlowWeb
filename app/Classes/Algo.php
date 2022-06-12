@@ -67,8 +67,8 @@ class Algo
 
     }
 
-    public function getMinCostMaxFlow()
+    public function getMinCostMaxFlow(int $n, int $s, int $t, array $e, array $g)
     {
-
+        return null;
     }
 }

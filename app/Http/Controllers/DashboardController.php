@@ -25,9 +25,9 @@ class DashboardController extends Controller
         $d[$s] = 0;
 
         $minCostMaxFlow = [];
-        $dijkstra = [];
+        $algo = [];
         $step = [];
-        $dijkstra[] = $d;
+        $algo[] = $d;
         $m = count($e);
         for ($i = 0; $i < $n - 1; $i++) {
             for ($j = 0; $j < $m; $j += 2) {
@@ -35,7 +35,7 @@ class DashboardController extends Controller
                     if ($d[$e[$j]->to] > $d[$e[$j]->from] + $e[$j]->cost) {
                         $d[$e[$j]->to] = $d[$e[$j]->from] + $e[$j]->cost;
                         $p[$e[$j]->to] = $j;
-                        $dijkstra[] = $d;
+                        $algo[] = $d;
                     }
                 }
             }
@@ -61,7 +61,7 @@ class DashboardController extends Controller
         $step['edges_flow'] = array_fill(0, count($e), 0);
         $step['track'] = $P;
         $step['cost'] = $d[$t];
-        $step['dijkstra'] = $dijkstra;
+        $step['dijkstra'] = $algo;
 //        mincost
         $min_cost = 0;
         $max_flow = 0;
@@ -70,7 +70,7 @@ class DashboardController extends Controller
                 $step["track"] = [];
                 $step["flow"] = 0;
                 $step["cost"] = 0;
-                $step["dijkstra"] = $dijkstra;
+                $step["dijkstra"] = $algo;
                 $minCostMaxFlow[] = $step;
                 break;
             }
@@ -112,9 +112,9 @@ class DashboardController extends Controller
             //dijkstra
             $d = array_fill(0, $n, $INF);
             $u = array_fill(0, $n, false);
-            $dijkstra = [];
+            $algo = [];
             $d[$s] = 0;
-            $dijkstra[] = $d;
+            $algo[] = $d;
             for ($i = 0; $i < $n; $i++) {
                 $v = -1;
                 for ($j = 0; $j < $n; $j++) {
@@ -135,7 +135,7 @@ class DashboardController extends Controller
                     if ($d[$to] > $d[$v] + $len) {
                         $d[$to] = $d[$v] + $len;
                         $p[$to] = $e_index;
-                        $dijkstra[] = $d;
+                        $algo[] = $d;
                     }
                 }
             }
@@ -153,7 +153,7 @@ class DashboardController extends Controller
             $P[] = $s;
             $P = array_reverse($P);
             $step['edges_w'] = $edges_w;
-            $step['dijkstra'] = $dijkstra;
+            $step['dijkstra'] = $algo;
             $step['track'] = $P;
             $step['cost'] = $d[$t];
         }
