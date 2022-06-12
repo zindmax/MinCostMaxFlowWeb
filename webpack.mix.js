@@ -15,3 +15,8 @@ mix.js('resources/js/app.js', 'public/js')
     .postCss('resources/css/app.css', 'public/css', [
         //
     ]);
+
+mix.scripts([
+    'node_modules/raphael/raphael.min.js',
+    'node_modules/graphdracula/dist/dracula.dev.js'
+], 'public/js/app.js')

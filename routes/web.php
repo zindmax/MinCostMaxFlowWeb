@@ -16,6 +16,7 @@ use Illuminate\Http\Request;
 
 Route::get('/', function () {
     return view('dashboard');
-})->name("dashboard");
+})->name('dashboard');
 
-Route::post('/graph', [\App\Http\Controllers\DashboardController::class, "index"])->name("algo");
+Route::get('/graph', [\App\Http\Controllers\DashboardController::class, 'showGraph']);
+Route::post('/graph', [\App\Http\Controllers\DashboardController::class, 'index'])->name('algo')->withoutMiddleware('web');

@@ -4,7 +4,7 @@
     @yield('head')
 </head>
 <body>
-    <div class="w-50 m-auto">
+    <div class="m-auto container-sm">
         @yield("content")
     </div>
 </body>
